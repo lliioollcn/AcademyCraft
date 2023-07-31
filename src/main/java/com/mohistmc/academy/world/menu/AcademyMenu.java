@@ -40,6 +40,11 @@ public abstract class AcademyMenu extends AbstractContainerMenu {
             }
         }
         container.reloadItems();
+
+        AcademyContainerBlockEntity blockEntity = container.getBlockEntity(this);
+        if (blockEntity != null) {
+            blockEntity.setMenu(this);
+        }
     }
 
     public Slot addAcademySlot(Slot slot) {
@@ -101,6 +106,7 @@ public abstract class AcademyMenu extends AbstractContainerMenu {
             AcademyContainerBlockEntity blockEntity = getBlockEntity(this.menu);
             if (blockEntity != null) {
                 blockEntity.setItems(items);
+
             }
         }
 

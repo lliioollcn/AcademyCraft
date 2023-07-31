@@ -1,5 +1,6 @@
 package com.mohistmc.academy.client.block.entity;
 
+import com.mohistmc.academy.world.menu.AcademyMenu;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
@@ -14,6 +15,7 @@ import net.minecraft.world.level.block.state.BlockState;
 
 public abstract class AcademyContainerBlockEntity extends BlockEntity {
     private NonNullList<ItemStack> items = NonNullList.withSize(0, ItemStack.EMPTY);
+    private AcademyMenu menu;
 
     public AcademyContainerBlockEntity(BlockEntityType<?> p_155228_, BlockPos p_155229_, BlockState p_155230_) {
         super(p_155228_, p_155229_, p_155230_);
@@ -23,6 +25,10 @@ public abstract class AcademyContainerBlockEntity extends BlockEntity {
     public void load(CompoundTag tag) {
         super.load(tag);
         setItems(deserializeContentItems(tag));
+    }
+
+    public AcademyMenu getMenu() {
+        return menu;
     }
 
     @Override
@@ -46,7 +52,7 @@ public abstract class AcademyContainerBlockEntity extends BlockEntity {
     public void serializeContentItems(CompoundTag tag) {
         CompoundTag contentItems = new CompoundTag();
         if (items.isEmpty()) {
-            items =NonNullList.withSize(getContainerSize(), ItemStack.EMPTY);
+            items = NonNullList.withSize(getContainerSize(), ItemStack.EMPTY);
         }
         for (int i = 0; i < getContainerSize(); i++) {
             contentItems.put(String.valueOf(i), items.get(i).serializeNBT());
@@ -80,4 +86,7 @@ public abstract class AcademyContainerBlockEntity extends BlockEntity {
     }
 
 
+    public void setMenu(AcademyMenu academyMenu) {
+        this.menu = academyMenu;
+    }
 }

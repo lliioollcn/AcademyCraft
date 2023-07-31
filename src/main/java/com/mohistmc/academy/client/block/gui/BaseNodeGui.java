@@ -1,7 +1,6 @@
 package com.mohistmc.academy.client.block.gui;
 
 import com.mohistmc.academy.AcademyCraft;
-import com.mohistmc.academy.client.block.entity.BaseNodeBlockEntity;
 import com.mohistmc.academy.gui.AcademyBaseUI;
 import com.mohistmc.academy.utils.RenderUtils;
 import com.mohistmc.academy.world.menu.BaseNodeMenu;
@@ -10,7 +9,6 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
-import net.minecraft.world.level.block.entity.BlockEntity;
 
 public abstract class BaseNodeGui<T extends BaseNodeMenu> extends AcademyBaseUI<T> {
 
@@ -55,5 +53,6 @@ public abstract class BaseNodeGui<T extends BaseNodeMenu> extends AcademyBaseUI<
                 75 * animIndex, 0, 176, 750);
         //TODO: 检测是否链接矩阵，播放动画
         RenderSystem.disableBlend();
+
     }
 }

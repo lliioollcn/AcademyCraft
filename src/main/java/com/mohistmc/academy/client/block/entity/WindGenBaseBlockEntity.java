@@ -29,7 +29,7 @@ public class WindGenBaseBlockEntity extends AcademyContainerBlockEntity {
         this.validMiddle = validMiddle;
         if (!validBlock) return;
         getItems().forEach((item) -> {
-            if (item.is(AcademyItems.ENERGY_UNIT.get())) {
+            if (item.is(AcademyItems.ENERGY_UNIT.get()) || item.is(AcademyItems.DEVELOPER_PORTABLE.get())) {
                 Optional<?> optional = getCapability(AcademyCapability.IF_CAPABILITY).resolve();
                 if (optional.isPresent()) {
                     Object cap = optional.get();

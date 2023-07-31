@@ -110,6 +110,7 @@ public abstract class AcademyBaseUI<T extends AcademyMenu> extends AbstractConta
 
         }
 
+        RenderSystem.setShaderColor(1, 1, 1, 1);
     }
 
     private NonNullList<AcademyNode> nodes = NonNullList.create();
@@ -128,11 +129,13 @@ public abstract class AcademyBaseUI<T extends AcademyMenu> extends AbstractConta
 
     @Override
     public void render(PoseStack stack, int mouseX, int mouseY, float p_97798_) {
+        RenderSystem.setShaderColor(1, 1, 1, 1);
         if (!this.wireless)
             super.render(stack, mouseX, mouseY, p_97798_);
         super.renderBackground(stack);
-        super.renderTooltip(stack, mouseX, mouseY);
+
         this.renderBg(stack, p_97798_, mouseX, mouseY);
+        RenderSystem.setShaderColor(1, 1, 1, 1);
         RenderSystem.enableBlend();
         RenderSystem.defaultBlendFunc();
         if (this.isHoveringButton(((this.width - 176) / 2) - 20, ((this.height - 187) / 2), 18, 18, mouseX, mouseY) || !wireless) {
@@ -228,11 +231,12 @@ public abstract class AcademyBaseUI<T extends AcademyMenu> extends AbstractConta
             }
         }
         RenderSystem.disableBlend();
+        RenderSystem.setShaderColor(1, 1, 1, 1);
+        super.renderTooltip(stack, mouseX, mouseY);
     }
 
 
     public boolean isHoveringButton(int x, int y, int w, int h, double mx, double my) {
-
         return ((x + w) > mx && mx > x) && ((y + h) > my && my > y);
     }
 

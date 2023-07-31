@@ -22,7 +22,7 @@ public abstract class BaseNodeMenu extends AcademyMenu {
         addAcademySlot(new Slot(container, 1, 44, 70) {
             @Override
             public boolean mayPlace(ItemStack item) {
-                return item.is(AcademyItems.ENERGY_UNIT.get());
+                return item.is(AcademyItems.ENERGY_UNIT.get()) || item.is(AcademyItems.DEVELOPER_PORTABLE.get());
             }
         });
     }
